@@ -1,0 +1,85 @@
+.r {
+  margin-left: 130px;
+}
+
+.right{
+  margin-right: -30px;
+}
+
+.tab {
+  border: 1px solid #D4E3DF
+}
+table {
+  width: 96%;
+  border-collapse: collapse;
+}
+tr {
+  /*padding: 3px; !*поля вокруг содержимого таблицы*!*/
+  border: 1px solid black;
+  text-align: left;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+th,td {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+thh{
+  background-color: #D4E3DF;
+  background: #569E95;
+}
+
+.hh {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 120%;
+
+  /* or 19px */
+  display: flex;
+  align-items: center;
+
+  /* kaz dark */
+  /*background: #585144;*/
+}
+
+.scrollbar {
+  /*background-color: #ff0000;*/
+  background-color: white;
+  float: left;
+  height: 170px;
+  /*margin-bottom: 25px;*/
+  /*margin-left: 22px;*/
+  /*margin-top: 40px;*/
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  /*height: 20px;*/
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #569E95;
+}
+
+
+img.myClass1{
+  /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+  opacity: 0.3;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+img.myClass1:hover {
+  opacity: 1;
+}

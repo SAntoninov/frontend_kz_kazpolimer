@@ -1,0 +1,264 @@
+.r {
+  margin-left: 115px;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #ACCBC5;
+  /*border-radius: 0px;*/
+}
+
+input:focus {
+  border-color: #569E95;
+}
+
+select {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #ACCBC5;
+}
+
+.top{
+  margin-top: 20px;
+}
+
+.right{
+  margin-right: 10px;
+}
+
+.inp {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #03a8f45e;
+  padding: 5px 15px;
+  outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.4s 0.4s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+
+
+
+.test{
+  position: relative;
+  left: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.row{
+  padding: 5px;
+}
+
+img.myClass1{
+  opacity: 0.6;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+img.myClass1:hover {
+  opacity: 1;
+}
+
+.test1 {
+  position: relative;
+  color: #569E95;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.test2{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: flex-end;
+  background: #ACCBC5;
+}
+
+.test3{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #ACCBC5;
+  font-family: Roboto;
+  font-size: 16px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.purple-border textarea {
+  border: 1px solid #569E95;
+}
+
+.uploadfilecontainer {
+  background-image: url("/assets/upload-image-icon-png-15.jpg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  height: 170px;
+  width: 100%;
+  border: 1px dashed #ACCBC5;
+}
+
+.scrollbar {
+  background-color: #ACCBC5;
+  float: left;
+  height: 470px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #569E95;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #ACCBC5 !important;
+  opacity: 0.8;
+}
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  color: #ACCBC5;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.files-list .delete-file img{
+  width:25px;
+  opacity: 0.6;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+.files-list .delete-file:hover img{
+  opacity: 1;
+}
+
+
+.delete-file1 {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.delete-file1 img{
+  width:30px;
+}
+
+
+.pre-scrollable1 {
+  max-height: 540px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.pre-scrollable2 {
+  max-height: 540px;
+  overflow-y: scroll;
+}
+
+.scrollbar {
+  background-color: #ffffff;
+  float: left;
+  height: 170px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-11::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+#style-11::-webkit-scrollbar-thumb {
+  background-color: #569E95;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #ACCBC5 !important;
+  /*background-color: #ffffff !important;*/
+  opacity: 0.8;
+}
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 3px;
+  color: #ACCBC5;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.files-list .delete-file img{
+  width:25px;
+  opacity: 0.6;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+.files-list .delete-file:hover img{
+  opacity: 1;
+}
+
+.delete-file1 {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.delete-file1 img{
+  width:30px;
+}
+

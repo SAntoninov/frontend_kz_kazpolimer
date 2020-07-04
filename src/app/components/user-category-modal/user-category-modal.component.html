@@ -1,0 +1,20 @@
+<!--<h1 mat-dialog-title>Hi {{data.name1}}</h1>-->
+<div mat-dialog-content>
+  <div class="row">
+    <mat-form-field>
+      <label value="Наименование">Краткое наименование</label>
+      <input matInput [(ngModel)]="data.shortName" style="background-color: #ACCBC5; ">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field>
+      <label value="Расшифровка">Полное наименование</label>
+      <input matInput [(ngModel)]="data.fullName" style="background-color: #ACCBC5; ">
+    </mat-form-field>
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Сохранить</button>
+</div>

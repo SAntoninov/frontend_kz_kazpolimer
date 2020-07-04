@@ -1,0 +1,298 @@
+.r {
+  margin-left: 115px;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #ACCBC5;
+  /*border-radius: 0px;*/
+}
+
+input:focus {
+  border-color: #569E95;
+}
+
+.top{
+  margin-top: 20px;
+}
+
+.right{
+  margin-right: 10px;
+}
+
+.inp {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #03a8f45e;
+  padding: 5px 15px;
+  outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.4s 0.4s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+
+
+
+.test{
+
+  position: relative;
+  /*width: 203px;*/
+  /*height: 24px;*/
+  left: 5px;
+  /*top: 21px;*/
+
+  /*font-weight: bold;*/
+
+  /* bodytext */
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+
+  /* kaz dark */
+
+  /*background: #585144;*/
+
+}
+
+/*.row{*/
+/*padding: 5px;*/
+/*}*/
+
+/*img:hover {*/
+/*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+
+/*}*/
+
+img.myClass1{
+  /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+  opacity: 0.6;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+img.myClass1:hover {
+  opacity: 1;
+}
+
+.test1 {
+  position: relative;
+  /*width: 121px;*/
+  /*height: 24px;*/
+  /*left: 196px;*/
+  /*top: 106px;*/
+
+  /* bodytext */
+
+  color: #569E95;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /*display: flex;*/
+  /*align-items: center;*/
+
+  /* biruza deep */
+
+  /*background: #569E95;*/
+}
+
+.test2{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: flex-end;
+
+  /* biruza light */
+
+  background: #ACCBC5;
+}
+
+.test3{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #ACCBC5;
+  font-family: Roboto;
+  /*font-size: 1em;*/
+  font-size: 16px;
+  /*font-style: italic;*/
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.purple-border textarea {
+  border: 1px solid #569E95;
+}
+
+
+
+
+
+.uploadfilecontainer {
+  /*background-image: url("/assets/Administrate.png");*/
+  /*background-image: url("/assets/YPS__upload_2_B-512.png");*/
+  background-image: url("/assets/upload-image-icon-png-15.jpg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  height: 170px;
+  width: 100%;
+  /*margin: 20px auto;*/
+  border: 2px dashed #ACCBC5;
+  /*border-radius: 10px;*/
+
+  /*max-height: 170px;*/
+  /*overflow-y: scroll;*/
+}
+
+.scrollbar {
+  /*background-color: #ff0000;*/
+  background-color: #ACCBC5;
+  float: left;
+  height: 170px;
+  /*margin-bottom: 25px;*/
+  /*margin-left: 22px;*/
+  /*margin-top: 40px;*/
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+/*.scrollbar {*/
+/*background-color: #F5F5F5;*/
+/*float: left;*/
+/*height: 300px;*/
+/*margin-bottom: 25px;*/
+/*margin-left: 22px;*/
+/*margin-top: 40px;*/
+/*width: 65px;*/
+/*overflow-y: scroll;*/
+/*}*/
+
+/*.force-overflow {*/
+/*min-height: 450px;*/
+/*}*/
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  /*height: 20px;*/
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #569E95;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #ACCBC5 !important;
+  opacity: 0.8;
+}
+
+
+
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  /*color: #569E95;*/
+  color: #ACCBC5;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.files-list .delete-file img{
+  width:25px;
+  opacity: 0.6;
+  transition: 200ms ease-in;
+  vertical-align: top;
+}
+
+.files-list .delete-file:hover img{
+  opacity: 1;
+}
+
+
+.delete-file1 {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.delete-file1 img{
+  width:30px;
+}
+
+
+
+
+.pre-scrollable1 {
+  max-height: 540px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.pre-scrollable2 {
+  max-height: 540px;
+  overflow-y: scroll;
+}
+
+
+
+/*input[type=checkbox] {*/
+/*display:none;*/
+/*}*/
+
+/*input[type=checkbox] + label*/
+/*{*/
+/*!*background: #999;*!*/
+/*background-image: url("/assets/icon_CheckBoxOff.jpg");*/
+/*height: 14px;*/
+/*width: 14px;*/
+/*display:inline-block;*/
+/*padding: 0 0 0 0px;*/
+/*}*/
+
+/*input[type=checkbox]:checked + label*/
+/*{*/
+/*background: #0080FF;*/
+/*height: 14px;*/
+/*width: 14px;*/
+/*display:inline-block;*/
+/*padding: 0 0 0 0px;*/
+/*}*/

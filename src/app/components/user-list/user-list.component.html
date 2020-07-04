@@ -1,0 +1,138 @@
+
+<!--<div style="text-align: center;">-->
+<!--<h3>{{name}}</h3>-->
+<!--</div>-->
+
+<!--<div class="card my-5 r" >-->
+<!--<div class="card-body">-->
+<!--<table class="table table-bordered table-striped tab" >-->
+<!--<thead class="thead-dark ">-->
+<!--<tr style="background-color: #D4E3DF">-->
+<!--&lt;!&ndash;<th scope="col">#</th>&ndash;&gt;-->
+<!--<th scope="col">Ф.И.О</th>-->
+<!--<th scope="col">Контакты</th>-->
+<!--<th scope="col">Телефон</th>-->
+<!--<th scope="col">Роль</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--&lt;!&ndash;<tr *ngFor="let user of users" routerLink="/use/{{user.id}}" class="btn btn-info" >&ndash;&gt;-->
+<!--&lt;!&ndash;<tr *ngFor="let user of users" [routerLink]="['/test', user.id]">&ndash;&gt;-->
+<!--<tr *ngFor="let user of users" [routerLink]="['/use', user.id]">-->
+<!--&lt;!&ndash;<tr *ngFor="let user of users" [routerLink]="['/use', user.id]">&ndash;&gt;-->
+<!--&lt;!&ndash;<td >{{ user.id }}</td>&ndash;&gt;-->
+<!--<td>{{ user.fullName }}</td>-->
+<!--&lt;!&ndash;<td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>&ndash;&gt;-->
+<!--<td>{{ user.email }}</td>-->
+<!--<td>{{ user.phone }}</td>-->
+<!--<td>{{ user.role }}</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+<!--<div class="r container-fluid" style="padding-right: 8%">-->
+<!--<div class="r container-fluid" >-->
+<div class="r row right" style="overflow-x: hidden">
+<!--<div class="r container"  style="margin-right: 0px">-->
+
+  <div class="row" style="margin-top: 15px">
+    <div style="text-align: left;" class="col-md-2 pdb pdt">
+      <h4>{{name}}</h4>
+      <!--<h3>Поставщики</h3>-->
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 15px">
+    <div class="col-lg-1">Пользователи</div>
+    <div class="col-lg-1 m-l-0" style="padding-bottom: 5px" (click)="add()">
+      <img class="myClass1" style="padding-top: 5px" src="assets/icon_Add.jpg">
+    </div>
+  </div>
+
+
+
+  <table class="table table-bordered table-hover" >
+    <thead class="thead-dark " >
+    <tr style="background-color: #D4E3DF; ">
+      <!--<th scope="col">#</th>-->
+      <!--<th scope="col" style="background-color: #D4E3DF; background: #569E95;">Ф.И.О</th>-->
+      <th scope="col">Ф.И.О</th>
+      <th scope="col">Имя пользователя</th>
+      <th scope="col">Роль</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Разрешенные категории</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<tr *ngFor="let user of users" routerLink="/use/{{user.id}}" class="btn btn-info" >-->
+    <!--<tr *ngFor="let user of users" [routerLink]="['/test', user.id]">-->
+    <tr *ngFor="let user of users; let i=index" [routerLink]="['/user', user.id]">
+      <!--<tr *ngFor="let user of users" [routerLink]="['/use', user.id]">-->
+      <!--<td >{{ user.id }}</td>-->
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.fullName.split(' ')[1] }}</td>
+      <!--<td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
+      <td>{{ user.role }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ categories[i] }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="row" style="margin-top: 25px">
+    <div class="col-lg-2">Области применения</div>
+    <div class="col-lg-1 m-l-0" style="padding-bottom: 0px" (click)="openDialog()">
+      <img class="myClass1" style="padding-top: 5px" src="assets/icon_Add.jpg">
+    </div>
+
+    <!--<li *ngIf="animal">-->
+      <!--You chose: <i>{{animal}}</i>-->
+    <!--</li>-->
+
+    <!--<li>-->
+      <!--<button mat-raised-button (click)="addAreas()">Pick one</button>-->
+    <!--</li>-->
+  </div>
+
+
+  <!--<div class="form-group">-->
+    <!--<label for="department">-->
+      <!--Department-->
+    <!--</label>-->
+    <!--&lt;!&ndash;<select id="department" name="department" [(ngModel)]="department" class="form-control">&ndash;&gt;-->
+    <!--<select id="department" name="department" class="form-control">-->
+      <!--&lt;!&ndash;<option>sdfsdf</option>&ndash;&gt;-->
+      <!--<option [value]="1">123</option>-->
+      <!--<option [value]="2" selected>1234</option>-->
+    <!--</select>-->
+  <!--</div>-->
+
+  <!--<select (change)="onChange($event)">-->
+    <!--<option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>-->
+  <!--</select>-->
+
+  <div style="padding-right: 4%">
+    <div class="table table-bordered scrollbar" id="style-1" style="margin-top: 10px; border-color: #569E95; height:250px">
+      <div *ngFor="let applicationArea of applicationAreas; let j=index;" class="row" style="margin-top: 10px;">
+        <div class="col-lg-1 p-l-2" >{{j+1}}</div>
+        <div class="col-lg-10">{{applicationArea.description}}</div>
+        <div class="col-lg-1" >
+          <img (click)="deleteApplicationArea(applicationArea.id, j)" class="myClass1" style="width: 30px" src="../../assets/icon_Close.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

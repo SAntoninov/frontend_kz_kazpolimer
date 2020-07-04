@@ -1,0 +1,175 @@
+<style>
+
+</style>
+
+<div class="top r row right">
+
+  <div class="row" style="padding: 0px; padding-left: 5px">
+    <div class="col-lg-3">
+      <div class="btn row" [routerLink]="['/customers']">
+        <div class="col-lg-1"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+        <div class="test1"><span style="vertical-align: middle; display: inline-block">Все покупатели</span></div>
+      </div>
+    </div>
+    <div class="col-lg-7"></div>
+    <div class="col-lg-2" [routerLink]="['/customers']"><img style="margin-left: 135px; margin-top: 5px" src="assets/icon_Close_type2.jpg"></div>
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="row">
+      <div class="col-lg-4" style="font-weight: bold">{{test.name}}</div>
+      <div class="col-lg-2" (click)="edit()"><img class="myClass1" style="margin-left: 25px" src="assets/Group.jpg"></div>
+    </div>
+    <div class="table-bordered" style="border-color: #569E95">
+
+      <div class="row">
+        <div class="col-lg-5 test">Наименование покупателя</div>
+        <div class="col-lg-5 test" style="text-align: left;">{{test.name}}</div>
+        <div class="col-lg-2 test" ><img class="myClass1" style="margin-left: 25px" src="assets/Vector.jpg"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 test" style="text-underline: #569E95; font-weight: bold">Контактная информация</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 test">Региональная принадлежность</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.region}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 test">Адрес фактический</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.addressactual}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 test">Адрес юридический</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.addresslegal}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 test">E-mail</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.email}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 test">Телефон</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.phone}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 test" style="text-underline: #569E95; font-weight: bold">Сведения о контактных лицах</div>
+      </div>
+
+      <div *ngFor="let cont of test.contacts" style="margin-top: 10px; margin-bottom: 10px">
+        <div class="row">
+          <div class="col-lg-5 test">ФИО</div>
+          <div class="col-lg-7 test">{{cont.name}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 test">E-mail</div>
+          <div class="col-lg-7  test">{{cont.email}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 test">Телефон</div>
+          <div class="col-lg-7 test">{{cont.phone}}</div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12" style="text-underline: #569E95; font-weight: bold">
+          Общие сведения о покупателе
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12" style="margin-top: 10px; margin-bottom: 10px; margin-left: 5px">
+          {{test.additionalinfo}}
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-1">Товары</div>
+      <div class="col-lg-1 m-l-1"><img style="height: 25px; margin-top: 0px" class="myClass1" src="assets/icon_Add.jpg"></div>
+    </div>
+
+    <div class="table table-bordered col-lg-12" style="margin-top: 10px; border-color: #569E95; height: 170px">
+
+      <div class="row " style="background: #ACCBC5">
+        <div class="col-lg-4">Наименование</div>
+        <div class="col-lg-6">Объем переработки, тонн / месяц</div>
+        <div class="col-lg-2"></div>
+      </div>
+
+      <div *ngFor="let customer of test.customerProducts" class="row">
+        <div class="col-lg-4">{{customer.name}}</div>
+        <div class="col-lg-6">{{ customer.valuebeg }} - {{ customer.valueend }}</div>
+        <div class="col-lg-2">
+          <img (click)="te()" class="myClass1" style="width: 30px" src="../../assets/icon_Close.jpg">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-1">Файлы</div>
+      <div class="col-lg-1 m-l-1"><img style="height: 25px; margin-top: 0px" class="myClass1" src="assets/icon_Add.jpg"></div>
+    </div>
+
+
+    <div class="table table-bordered" style="margin-top: 10px; border-color: #569E95; height: 170px">
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-2"><img style="height: 25px; margin-top: 0px; margin-left: 5px" class="myClass1" src="assets/icon_Attach.jpg"></div>
+        <div class="col-lg-4">имя файла</div>
+        <div class="col-lg-2"><img style="height: 25px; margin-top: 0px" class="myClass1" src="assets/icon_Close.jpg"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="col-md-6">
+
+    <div class="form-group">
+      <!--<label>Архив переговоров</label>-->
+      <div class="row">
+        <div class="col-lg-4" style="font-weight: bold; height: 26px">Архив переговоров</div>
+      </div>
+
+      <div class="row" style="margin-top: 5px">
+        <div class="col-lg-3 pd db ">
+          <input style="height:25px; " type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Поиск">
+        </div>
+        <div class="col-lg-2 pd pdb">Фильтр</div>
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-4 ">метки фильтрации</div>
+      </div>
+
+      <div class="table-bordered" style="margin-top: 5px; border-color: #569E95; height: 170px">
+        <div *ngFor="let comment of comments" class="row">
+
+          <div class="col-lg-1 p-l-2" style="padding-top: 5px"><img src="assets/256-512.png" width="35" height="35"></div>
+          <div class="col-lg-11 container p-l-0">
+            <div class="col-lg-12">{{comment.user.fullName.split(' ')[1]}} {{comment.time.split('T')[0]}}</div>
+            <div class="col-lg-12">{{comment.message}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-1 p-l-2" style="padding-top: 5px"><img src="assets/256-512.png" width="35" height="35"></div>
+        <div class="col-lg-6 "><input placeholder="комментарий" [(ngModel)]="comm"></div>
+        <div class="col-lg-1"><img src="assets/btn_Send.png" (click)="sendComment(comm, test)"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+

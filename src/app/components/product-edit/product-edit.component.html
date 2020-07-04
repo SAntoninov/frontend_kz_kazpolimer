@@ -1,0 +1,338 @@
+<div class="r container-fluid">
+  <div class="top row right">
+    <div class="row" style="padding: 0px; padding-left: 5px">
+      <div class="col-lg-2 btn">
+        <div class="row" [routerLink]="['/products']">
+          <div class="col-lg-1"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+          <div class="test1"><span style="vertical-align: middle; display: inline-block">Товары</span></div>
+          <!--<div class="test1">Все поставщики</div>-->
+        </div>
+      </div>
+      <div class="col-lg-8"></div>
+      <div class="col-lg-2" [routerLink]="['/products']"><img style="margin-left: 135px; margin-top: 5px" src="assets/icon_Close_type2.jpg"></div>
+    </div>
+
+
+    <div class="col-md-6" >
+
+
+      <!--<label class="test1">Все поставщики</label>-->
+      <div class="row">
+        <!--<div class="col-lg-4" style="font-weight: bold">{{test.name}}</div>-->
+        <div class="col-lg-8" style="font-weight: 500; font-size: 18px" *ngIf="products.fullname">{{products.fullname}}</div>
+        <div class="col-lg-8" style="font-weight: 500; font-size: 18px" *ngIf="!products.fullname">Добавить новый товар</div>
+      </div>
+
+      <!--<div class="table-bordered pre-scrollable1 scrollbar" id="style-1"  style="border-color: #ACCBC5; ">-->
+      <div class="table-bordered pre-scrollable1 " style="border-color: #ACCBC5; ">
+
+        <div class="form-group">
+          <div class="row ">
+            <div class="col-lg-12">
+              <!--<input size="20" class="form-control test3" name="username" *ngIf="test.name" [(ngModel)]="test.name" value="Наименование"/>-->
+              <!--<input size="20" class="form-control " name="username" *ngIf="!test.name" value="Наименование"/>-->
+              <label *ngIf="products.fullname" for="products.fullname" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Наименование</label>
+              <input  id="products.fullname" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.fullname" placeholder="Наименование"/>
+              <!--<input size="20" class="form-control " name="username" *ngIf="!test.name" placeholder="Наименование"/>-->
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-lg-5 p-r-0">
+              <input class="form-control test3" name="usernam" [(ngModel)]="products.name" placeholder="Сокращение"/>
+            </div>
+
+
+            <div class="col-lg-7">
+              <select *ngIf="!fl" (change)="onChange($event)" class="form-control test3" style="height: 37px">
+                <!--<option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>-->
+                <option *ngFor="let v of suppliers" [selected]="products.supplier == v.name" [value]="v.name">{{v.name}}</option>
+              </select>
+              <select *ngIf="fl" (change)="onChange($event)" class="form-control test3" style="height: 37px;">
+                <option [value]="null">Выберите поставщика товара</option>
+                <option *ngFor="let v of suppliers" [value]="v.name">{{v.name}}</option>
+              </select>
+            </div>
+
+            <!--<div class="col-lg-7 p-l-0">-->
+              <!--<input class="form-control " name="usernam"  [(ngModel)]="products.manufacturer" placeholder="Производитель"/>-->
+            <!--</div>-->
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <!--<label *ngIf="products.category" for="products.category" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Категория</label>-->
+              <!--<input  id="products.category" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.category" placeholder="Категория"/>-->
+              <select *ngIf="!fl" id="categories" (change)="onChangeCategory($event)" class="form-control test3" style="height: 37px">
+                <option *ngFor="let c of categories" [value]="c.shortName" [selected]="products.category == c.shortName">{{c.shortName}}</option>
+              </select>
+              <select *ngIf="fl" id="categories0" (change)="onChangeCategory($event)" class="form-control test3" style="height: 37px">
+                <!--<option [ngValue]="null">select</option>-->
+                <option [value]="null">Выберите категорию товара</option>
+                <option *ngFor="let c of categories" [value]="c.shortName" >{{c.shortName}}</option>
+              </select>
+            </div>
+          </div>
+
+
+          <!--<div class="row">-->
+            <!--<div *ngIf="booll" class="col-lg-12">-->
+              <!--&lt;!&ndash;<label *ngIf="products.category" for="products.category" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Категория</label>&ndash;&gt;-->
+              <!--&lt;!&ndash;<input  id="products.category" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.category" placeholder="Категория"/>&ndash;&gt;-->
+              <!--<select [(ngModel)]="categories" id="categories" (change)="onChangeCategory($event)" class="form-control test3" style="height: 37px">-->
+                <!--<option value="qwe" selected="selected">1234</option>-->
+              <!--</select>-->
+            <!--</div>-->
+            <!--<div *ngIf="!booll" class="col-lg-12">-->
+              <!--&lt;!&ndash;<label *ngIf="products.category" for="products.category" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Категория</label>&ndash;&gt;-->
+              <!--&lt;!&ndash;<input  id="products.category" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.category" placeholder="Категория"/>&ndash;&gt;-->
+              <!--<select [(ngModel)]="categories" id="categories0" (change)="onChangeCategory($event)" class="form-control test3" style="height: 37px">-->
+                <!--<option *ngFor="let c of categories" [value]="c.shortName">{{c.shortName}}</option>-->
+              <!--</select>-->
+            <!--</div>-->
+          <!--</div>-->
+
+
+          <div class="row">
+            <div class="col-lg-12">
+              <label *ngIf="products.applicationarea" for="products.applicationarea" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Область применения</label>
+              <input  id="products.applicationarea" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.applicationarea" placeholder="Область применения"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <label *ngIf="products.characteristicproperties" for="products.characteristicproperties" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Характерные свойства</label>
+              <input  id="products.characteristicproperties" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.characteristicproperties" placeholder="Характерные свойства"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <label *ngIf="products.manufacturer" for="products.v" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Производитель</label>
+              <input  id="products.v" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="products.manufacturer" placeholder="Производитель"/>
+            </div>
+          </div>
+
+          <!--<div class="row">-->
+          <!--<div class="col-lg-10">-->
+          <!--<input class="form-control " name="usernam" [(ngModel)]="test.addressactual" placeholder="Адрес"/>-->
+          <!--</div>-->
+          <!--<div class="col-lg-2 m-l-0" (click)="fileInput.click()">-->
+          <!--<img class="myClass1" style="padding-top: 5px" src="assets/icon_Add.jpg">-->
+          <!--</div>-->
+          <!--</div>-->
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-5 p-r-0" style="font-weight: 500; margin-left: 10px">Физико-химические свойства</div>
+          <div class="col-lg-2  m-l-1" (click)="addPhysicalProperty()"><img class="myClass1" src="assets/icon_Add.jpg"></div>
+        </div>
+
+        <!--<div id="123">qwe</div>-->
+        <!--{{words2 || json}}-->
+        <!--{{words2[words2.length-1].value}}-->
+        <!--{{contacts[contacts.length-1].name}}-->
+        <div *ngFor="let item of physicalProperties; let w=index" >
+          <!--<input class="form-control " name="usernam" [(ngModel)]="contacts[w].position" placeholder="Должность"/>-->
+          <div class="row" style="margin-top: 5px">
+            <div class="col-lg-6">
+              <!--<input class="form-control " name="name{{w}}"  #name="ngModel"  [(ngModel)]="physicalProperties[w].name" value="Телефон"/>-->
+              <!--<input class="form-control " name="name{{w}}"  #name="ngModel" required *ngIf="words2[w].value" [(ngModel)]="words2[w].value" value="Телефон" (ngModelChange)="saverange($event)"/>-->
+              <input class="form-control " name="name{{w}}" #name="ngModel"  [(ngModel)]="physicalProperties[w].name" placeholder="Характеристика"/>
+              <!--<div id="{{'Id'+i}}">qwe</div>-->
+            </div>
+            <!--<div class="col-lg-1"></div>-->
+            <div class="col-lg-3">
+              <!--<input type="checkbox" class="form-check-input test1" id="exampleCheck1">-->
+              <!--<div class="row">-->
+              <!--<input type="checkbox" id="exampleCheck1"> &lt;!&ndash;icon_CheckBoxOff.jpg&ndash;&gt;-->
+              <!--<label class="form-check-label test1" style="color: #ACCBC5" for="exampleCheck1" >Основной контакт</label>-->
+              <!--</div>-->
+              <!--<button class="delete-file" (click)="deleteAttachment1(w)">-->
+              <!--<img src="../../assets/icon_Minus.jpg">-->
+              <!--</button>-->
+            </div>
+            <div class="col-lg-1" (click)="addProp(w)"><img style="height: 25px; margin-top: 5px" class="myClass1" src="assets/icon_Add.jpg"></div>
+            <div class="col-lg-1 delete-file" (click)="deletePhysicalProps(w)"><img style="height: 25px; margin: 5px" class="myClass1" src="assets/icon_Minus.jpg"></div>
+          </div>
+
+          <div *ngFor="let item2 of physicalProperties[w].props; let v=index">
+
+            <div class="row" style="margin-top: 5px; margin-left: 10px">
+              <div class="col-lg-5">
+                <!--<input class="form-control" name="name{{v}}" #name="ngModel" required *ngIf="physicalProperties[w].props[v].name" [(ngModel)]="physicalProperties[w].props[v].name"/>-->
+                <input class="form-control " name="name{{w}}" #name="ngModel" [(ngModel)]="physicalProperties[w].props[v].name" placeholder="Условие"/>
+              </div>
+
+              <div class="col-lg-3 ">
+                <input class="form-control" name="name{{v}}" #name="ngModel" [(ngModel)]="physicalProperties[w].props[v].valuedoc" placeholder="от"/>
+              </div>
+
+              <div class="col-lg-2">
+                <input class="form-control" name="name{{v}}" #name="ngModel" [(ngModel)]="physicalProperties[w].props[v].valuefact" placeholder="до"/>
+              </div>
+
+              <!--<div class="col-lg-1  m-l-0" (click)="addProp(w)"><img style="height: 25px; margin-top: 5px" class="myClass1" src="assets/icon_Add.jpg"></div>-->
+              <div class="col-lg-1  m-l-0" (click)="deleteProp(w,v)"><img style="height: 25px; margin-top: 5px" class="myClass1" src="assets/icon_Minus.jpg"></div>
+            </div>
+
+
+
+          </div>
+
+
+          <!--&lt;!&ndash;для контактов&ndash;&gt;-->
+          <!--<div class="row">-->
+          <!--<div class="col-lg-4">-->
+          <!--<input class="form-control " name="usernam" *ngIf="contacts[w].phone" [(ngModel)]="contacts[w].phone" value="Телефон"/>-->
+          <!--<input class="form-control " name="usernam" *ngIf="!contacts[w].phone" [(ngModel)]="contacts[w].phone" placeholder="Телефон"/>-->
+          <!--&lt;!&ndash;<input class="form-control " name="usernam" [(ngModel)]="test.addressactual" placeholder="Адрес"/>&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="col-lg-2" >-->
+          <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="col-lg-10"><input class="form-control " name="usernam" value="Мобильный"/></div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="col-lg-2">pi</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--<input class="form-control " name="usernam" placeholder="Мобильный"/>-->
+          <!--</div>-->
+          <!--<div class="col-lg-6">-->
+          <!--<input class="form-control " name="usernam" *ngIf="contacts[w].email" [(ngModel)]="contacts[w].email" value="E-mail"/>-->
+          <!--<input class="form-control " name="usernam" *ngIf="!contacts[w].email" [(ngModel)]="contacts[w].email" placeholder="E-mail"/>-->
+          <!--</div>-->
+          <!--</div>-->
+
+
+          <!--<div class="row" style="margin-bottom: 20px">-->
+          <!--<div class="col-lg-10">-->
+          <!--<input class="form-control " name="usernam" *ngIf="item.email" [(ngModel)]="item.email" value="Адрес"/>-->
+          <!--<input class="form-control " name="usernam" *ngIf="!item.email" placeholder="Адрес"/>-->
+          <!--</div>-->
+          <!--<div class="col-lg-2">-->
+          <!--<input class="form-control " name="usernam" *ngIf="!item.email" placeholder="Еще"/>-->
+          <!--</div>-->
+          <!--</div>-->
+
+        </div>
+        <!---->
+
+      </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+
+
+      <!--<div class="container">-->
+      <!--<app-toolbar (addComponentClick)="onAddComponentClick()"></app-toolbar>-->
+      <!--<div app-type="section" id="SECTION1" [active]="true"></div>-->
+      <!--<div app-type="section" id="SECTION2"></div>-->
+      <!--</div>-->
+
+      <!--<ul>-->
+      <!--<li *ngFor="let item of items">-->
+      <!--<div>{{item}}</div>-->
+      <!--<div>weqw</div>-->
+      <!--</li>-->
+      <!--</ul>-->
+
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-1 p-r-0" style="height: 26px">Файлы</div>
+          <div class="col-lg-2 m-l-0" (click)="fileInput.click()"><img class="myClass1" style="margin-left: 25px" src="assets/icon_Add.jpg"></div>
+        </div>
+
+        <!--<div class="table-bordered" style=" border-color: #569E95; height: 170px"></div>-->
+
+          <!--<div class="scrollbar" id="style-1">-->
+            <!--<div class="force-overflow">-->
+            <!--</div>-->
+          <!--</div>-->
+
+        <div class="uploadfilecontainer scrollbar" id="style-11" appDragDrop (onFileDropped)="uploadFile($event)">
+          <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" id="idd">
+          <div  class="files-list" *ngFor="let file of files; let i=index">
+            <div class="delete-file" (click)="download(i)"><img style="height: 25px; margin: 5px" class="myClass1" src="assets/icon_Attach.jpg"></div>
+            <p class="test3" style="margin: 0px; margin-top: 5px">{{ file }}</p>
+            <button class="delete-file" (click)="deleteAttachment(i)"><img style="width: 30px" src="../../assets/icon_Close.jpg"></button>
+          </div>
+        </div>
+
+        <!--<div class="uploadfilecontainer scrollbar" id="style-11" appDragDrop (onFileDropped)="uploadFile($event)">-->
+          <!--<input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" id="idd">-->
+        <!--<div  class="files-list" *ngFor="let file of files; let i=index">-->
+          <!--&lt;!&ndash;<div  class="row" *ngFor="let file of files; let i=index">&ndash;&gt;-->
+            <!--<div class="col-lg-8">-->
+              <!--<p>{{ file }}</p>-->
+            <!--</div>-->
+            <!--<div class="col-lg-4">-->
+              <!--<button class="delete-file1" (click)="deleteAttachment(i)"><img src="../../assets/icon_Close.jpg"></button>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div *ngIf="files.length > 0">-->
+
+
+        <!--<div class="uploadfilecontainer scrollbar" id="style-1" appDragDrop (onFileDropped)="uploadFile($event)">-->
+          <!--<input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" id="idd">-->
+          <!--<div  class="files-list" *ngFor="let file of files; let i=index">-->
+            <!--<div class="delete-file" (click)="download(i)"><img style="height: 25px; margin: 5px" class="myClass1" src="assets/icon_Attach.jpg"></div>-->
+              <!--<p class="test3" style="margin: 0px; margin-top: 5px">{{ file }}</p>-->
+            <!--<button class="delete-file" (click)="deleteAttachment(i)"><img style="width: 30px" src="../../assets/icon_Close.jpg"></button>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+
+        <!--</div>-->
+
+
+
+      </div>
+
+      <!--<div class="r form-group">-->
+      <!--<button class="btn btn-default"  (click)="submit(test)">Отправить</button>-->
+      <!--</div>-->
+
+      <!--<div *ngIf="done" class="r">-->
+      <!--<div>Получено от сервера:</div>-->
+      <!--<div>Имя: {{test.name}}</div>-->
+      <!--<div>Возраст: {{name}}</div>-->
+      <!--</div>-->
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-12" style="height: 26px; margin-top: 30px">Галерея</div>
+        </div>
+        <!--<div class="table-bordered" style=" border-color: #569E95; height: 130px">-->
+        <div class="purple-border">
+          <!--<textarea [(ngModel)]='addInfo' class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>-->
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+        </div>
+        <!--</div>-->
+      </div>
+
+      <div class="row">
+        <div  class="form-group col-lg-6">
+          <button style="border-color: #569E95; background-color: #569E95; font-family: 'Bauhaus 93'" class="btn "  (click)="submit(products)">Сохранить</button>
+        </div>
+        <div  class="form-group col-lg-6">
+          <button style="border-color: #569E95; background-color: white; font-family: 'Bauhaus 93'" class="btn "  (click)="submit(products)">Сохранить и создать еще</button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>

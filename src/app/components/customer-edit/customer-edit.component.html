@@ -1,0 +1,201 @@
+<div class="r container-fluid">
+  <div class="top ">
+    <div class="row" style="padding: 0px; padding-left: 5px">
+      <div class="col-lg-2 ">
+        <div class="row " (click)="goToSuppliersList()" >
+          <div class="col-lg-1 btn"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+          <div class="test1 btn"><span style="vertical-align: middle; display: inline-block">Все покупатели</span></div>
+        </div>
+      </div>
+      <div class="col-lg-8"></div>
+      <div class="col-lg-2" (click)="goToSupplier()">
+        <img class="myClass1" style="margin-left: 151px; margin-top: 5px" src="assets/icon_Close_type2.jpg">
+      </div>
+    </div>
+
+    <div class="container-fluid row" >
+      <div class="col-lg-6 p-l-0" >
+        <div class="row">
+          <div class="col-lg-8" style="font-weight: 500; font-size: 18px" *ngIf="test.name">{{test.name}}</div>
+          <div class="col-lg-8" style="font-weight: 500; font-size: 18px" *ngIf="!test.name">Наименование покупателя</div>
+        </div>
+
+        <div class="table-bordered pre-scrollable1"  style="border-color: #ACCBC5; ">
+
+          <div class="form-group">
+            <div class="row ">
+              <div class="col-lg-12">
+                <label *ngIf="test.name" for="test.name" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Наименование</label>
+                <input  id="test.name" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.name" placeholder="Наименование"/>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12">
+                <label *ngIf="test.region" for="test.region" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Регион</label>
+                <input  id="test.region" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.region" placeholder="Регион"/>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-4 p-r-0">
+                <label *ngIf="test.phone" for="test.phone" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Телефон</label>
+                <input  id="test.phone" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.phone" placeholder="Телефон"/>
+              </div>
+              <div class="col-lg-8 p-l-0">
+                <label *ngIf="test.email" for="test.email" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">E-mail</label>
+                <input  id="test.email" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.email" placeholder="E-mail"/>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12">
+                <label *ngIf="test.addressactual" for="test.addressactual" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Адрес фактический</label>
+                <input  id="test.addressactual" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.addressactual" placeholder="Адрес фактический"/>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12">
+                <label *ngIf="test.addresslegal" for="test.addresslegal" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Адрес юридический</label>
+                <input  id="test.addresslegal" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.addresslegal" placeholder="Адрес юридический"/>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12">
+                <label *ngIf="test.lastinfo" for="test.lastinfo" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Общие сведения о покупателе</label>
+                <input  id="test.lastinfo" style="padding-left: 0px; margin-left: 5px; " size="20" class="form-control test3 p-t-0" name="username" [(ngModel)]="test.lastinfo" placeholder="Общие сведения о покупателе"/>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-lg-3 p-r-0" style="font-weight: 500; margin-left: 10px">Контактные лица</div>
+            <div class="col-lg-2  m-l-1" (click)="addContact()"><img class="myClass1" src="assets/icon_Add.jpg"></div>
+          </div>
+
+          <div *ngFor="let item of contacts; let w=index" >
+
+            <div class="row" style="margin-top: 5px">
+              <div class="col-lg-6">
+                <input id="contacts.name" class="form-control " name="name{{w}}"  #name="ngModel" required [(ngModel)]="contacts[w].name" value="Телефон" (ngModelChange)="saverange($event)" placeholder="Представление"/>
+              </div>
+              <div class="col-lg-4">
+                <div class="row">
+                  <input type="checkbox" id="exampleCheck1"> <!--icon_CheckBoxOff.jpg-->
+                  <label class="form-check-label test1" style="color: #ACCBC5" for="exampleCheck1" >Основной контакт</label>
+                </div>
+              </div>
+              <div class="col-lg-2 delete-file" (click)="deleteContactFromSuppliers(w)">
+                <img style="height: 25px; margin: 5px" class="myClass1" src="assets/icon_Minus.jpg">
+              </div>
+            </div>
+
+
+            <!--для контактов-->
+            <div class="row">
+              <div class="col-lg-4">
+                <input class="form-control " name="usernam"  [(ngModel)]="contacts[w].phone" placeholder="Телефон"/>
+              </div>
+              <div class="col-lg-8">
+                <input class="form-control " name="usernam" [(ngModel)]="contacts[w].email" placeholder="E-mail"/>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px">
+              <div class="col-lg-10">
+                <input class="form-control " name="usernam" [(ngModel)]="contacts[w].position" placeholder="Должность"/>
+              </div>
+              <div class="col-lg-2">
+                <input class="form-control " name="usernam" [(ngModel)]="contacts[w].more" placeholder="Еще"/>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6">
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-1 p-r-0" style="height: 26px">Файлы</div>
+            <div class="col-lg-2 m-l-0" (click)="fileInput.click()"><img class="myClass1" style="margin-left: 25px" src="assets/icon_Add.jpg"></div>
+          </div>
+
+          <div class="uploadfilecontainer scrollbar" id="style-1" appDragDrop (onFileDropped)="uploadFile($event)">
+            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" id="idd">
+            <div  class="files-list" *ngFor="let file of files; let i=index">
+              <div class="delete-file" (click)="download(i)"><img style="height: 25px; margin: 5px" class="myClass1" src="assets/icon_Attach.jpg"></div>
+              <p class="test3" style="margin: 0px; margin-top: 5px">{{ file }}</p>
+              <button class="delete-file" (click)="deleteAttachment(i)"><img style="width: 30px" src="../../assets/icon_Close.jpg"></button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-group" >
+          <div class="row" >
+            <div class="col-lg-1" style="margin-top: 15px">Товары</div>
+            <div class="col-lg-1 m-l-1" style="margin-top: 15px">
+              <img (click)="addProduct()" style="height: 25px; margin-top: 0px" class="myClass1" src="assets/icon_Add.jpg">
+            </div>
+          </div>
+
+          <div class="table table-bordered col-lg-12" style="margin-top: 10px; border-color: #569E95; height: 170px">
+
+            <div class="row " style="background: #ACCBC5">
+              <div class="col-lg-4">Наименование</div>
+              <div class="col-lg-6">Объем переработки, тонн / месяц</div>
+              <div class="col-lg-2"></div>
+            </div>
+
+            <div *ngFor="let customer of products; let ww=index" class="row">
+              <div class="col-lg-4">
+                <input class="form-control " name="usernam"  [(ngModel)]="products[ww].name" placeholder="Название"/>
+              </div>
+              <div class="col-lg-3">
+                <input class="form-control " name="usernam"  [(ngModel)]="products[ww].valuebeg" placeholder="от"/>
+              </div>
+              <div class="col-lg-3">
+                <input class="form-control " name="usernam"  [(ngModel)]="products[ww].valueend" placeholder="до"/>
+              </div>
+              <div class="col-lg-2">
+                <img (click)="deleteProduct(ww)" class="myClass1" style="width: 30px" src="../../assets/icon_Close.jpg">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-12" style="height: 26px;">Дополнительная информация</div>
+          </div>
+          <div class="purple-border">
+            <textarea [(ngModel)]='test.additionalinfo' class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div  class="form-group col-lg-6">
+            <button style="border-color: #569E95; background-color: #569E95; font-family: 'Bauhaus 93'" class="btn "  (click)="submit(test)">Сохранить</button>
+          </div>
+          <div  class="form-group col-lg-6">
+            <button style="border-color: #569E95; background-color: white; font-family: 'Bauhaus 93'" class="btn "  (click)="submit(test)">Сохранить и создать еще</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

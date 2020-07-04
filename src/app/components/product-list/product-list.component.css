@@ -1,0 +1,102 @@
+.r {
+  margin-left: 115px;
+}
+
+.tab {
+  border: 1px solid #D4E3DF
+}
+table {
+  width: 96%;
+  border-collapse: collapse;
+}
+tr {
+  border: 1px solid black;
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+
+}
+th,td {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.hh {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+
+}
+
+.pd{
+  padding-top: 25px;
+}
+
+.pdt{
+  margin-top: 10px;
+}
+
+.pdb{
+  margin-bottom: 10px;
+}
+
+.pagination1 {
+  display: inline-block;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background: white;
+  border: #569E95;
+}
+
+
+.page-link1:focus, .page-link1:hover {
+  color: #ACCBC5;
+  background-color: #eceeef;
+  border-color: #569E95;
+}
+
+
+.page-link1 {
+  position: relative;
+  float: left;
+  padding: 0.1rem 0.55rem;
+  margin-left: -1px;
+  margin: 2px;
+  color: #ACCBC5;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #569E95;
+  border-radius: 7px;
+}
+
+
+.page-item1 {
+  display: inline;
+}
+
+.page-item1:first-child .page-link {
+  margin-left: 0;
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+
+.page-item1:last-child .page-link {
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.page-item1.active .page-link, .page-item1.active .page-link:focus, .page-item1.active .page-link1:hover {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #569E95;
+  border-color: #0275d8;
+}

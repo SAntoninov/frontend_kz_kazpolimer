@@ -1,0 +1,173 @@
+
+<div class="top r row right" style="overflow-x: hidden">
+
+    <div class="row" style="padding: 0px; padding-left: 5px">
+      <div class="col-lg-3">
+        <div class="btn row" [routerLink]="['/users']">
+          <div class="col-lg-1"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+          <div class="test1"><span style="vertical-align: middle; display: inline-block">Назад</span></div>
+        </div>
+      </div>
+      <div class="col-lg-7"></div>
+      <div class="col-lg-2" [routerLink]="['/users']" >
+        <img style="margin-left: 135px; margin-top: 5px; " src="assets/icon_Close_type2.jpg">
+      </div>
+    </div>
+
+
+
+  <div class="col-lg-5">
+
+    <div class="row" style="margin-left: 0px;">Информация о пользователе</div>
+    <div class="table-bordered container p-l-0 p-r-0" style="border-color: #569E95">
+
+      <div class="col-lg-4 p-l-0">
+
+        <label *ngIf="use.email" for="use.email" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Контактный E-mail</label>
+        <input id="use.email" style="padding-left: 0px; margin-left: 5px; " [(ngModel)]="use.email" placeholder="Контактный E-mail" #name="ngModel" required>
+        <div [hidden]="name.valid" class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Не указан E-mail</div>
+
+        <label *ngIf="firstName" for="use.firstName" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Имя &nbsp;&nbsp;&nbsp;</label>
+        <input id="use.firstName" style="padding-left: 0px; margin-left: 5px; " [(ngModel)]="firstName" placeholder="Имя" #username="ngModel" required>
+        <div [hidden]="username.valid" class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Не указано имя</div>
+
+        <label *ngIf="secondName" for="secondName" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Фамилия</label>
+        <input id="secondName" style="padding-left: 0px; margin-left: 5px; " [(ngModel)]="secondName" placeholder="Фамилия" #secondname="ngModel" required>
+        <div [hidden]="secondname.valid" class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Не указана фамилия</div>
+
+        <label *ngIf="use.role" for="use.role" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Роль</label>
+        <input id="use.role" style="padding-left: 0px; margin-left: 5px; "  [(ngModel)]="use.role" placeholder="Роль" #role="ngModel" required>
+        <div [hidden]="role.valid" class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Выберите роль</div>
+
+      </div>
+
+      <div class="col-lg-4">
+        <label *ngIf="use.phone" for="use.phone" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Телефон</label>
+        <input id="use.phone" style="padding-left: 0px; margin-left: 5px; " [(ngModel)]="use.phone" placeholder="Телефон" #phone="ngModel" required pattern="[+][0-9]{11}">
+        <div [hidden]="phone.valid " class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Не верно указан телефон</div>
+
+        <label *ngIf="parent" for="use.parent" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Отчество</label>
+        <input id="use.parent" style="padding-left: 0px; margin-left: 5px; " [(ngModel)]="parent" placeholder="Отчество" #parentname="ngModel" required>
+        <div [hidden]="parentname.valid" class="alert alert-danger" style="font-size: 10px; padding: 3px; margin: 0px">Не указано отчество</div>
+
+        <label *ngIf="date" for="date" style="padding-left: 0px; margin-left: 5px; margin-bottom: 0px; font-size: 12px; color: #ACCBC5" class="test3">Отчество</label>
+        <form id="form-matt">
+          <mat-form-field class="example-full-width" style="width: 100%">
+            <input id="date"
+                   style="border-bottom-style: solid; margin-left: 5px;"
+                   matInput [matDatepicker]="picker"
+                   [(ngModel)]="date"
+                   (ngModelChange)="updateCalcs()"
+                   (dateChange)="changeEvent($event)"
+                   placeholder="Дата">
+            <mat-datepicker-toggle style="color: #569E95" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+          </mat-form-field>
+        </form>
+
+        <!--style="border-bottom-style: solid;"-->
+
+        <input [(ngModel)]="use.password" placeholder="Пароль">
+      </div>
+
+      <div class="col-lg-4 p-l-3">
+
+        <img  src="assets/256-512.png" width="120" height="120"  >
+          <button style="font-size: 12px">Сменить фото</button>
+        <input style="font-size: 8px" placeholder="Повторите пароль">
+
+      </div>
+
+      <!--<div class="row">-->
+        <!--<div class="col-lg-5">-->
+          <!--<input [(ngModel)]="use.role" placeholder="Роль">-->
+        <!--</div>-->
+        <!--<div class="col-lg-4">-->
+          <!--<input [(ngModel)]="use.password" placeholder="Пароль">-->
+        <!--</div>-->
+        <!--<div class="col-lg-3">-->
+          <!--<input style="font-size: 8px" placeholder="Повторите пароль">-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+    </div>
+  </div>
+
+    <div class="col-lg-4">
+      <div class="row" style="margin-left: 0px; ">
+        <div>Разрешенные категории</div>
+        <div>
+          <!--<button>+</button>-->
+        </div>
+      </div>
+      <div class="table-bordered col-lg-12" style="border-color: #569E95">
+        <div class="row " style="background: #ACCBC5">
+          <div class="col-lg-4">Сокращение</div>
+          <div class="col-lg-6">Наименование</div>
+          <div class="col-lg-2"></div>
+        </div>
+
+        <div *ngFor="let customer of use.categories; let i=index" class="row">
+          <div class="col-lg-4">{{customer.shortName}}</div>
+          <div class="col-lg-6">{{ customer.fullName }}</div>
+          <div class="col-lg-2">
+            <!--<button class="delete-file" (click)="deleteAttachment(i)">-->
+            <img (click)="deleteCategoresFromList(i)" class="myClass1" style="width: 30px" src="../../assets/icon_Close.jpg">
+            <!--</button>-->
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="col-lg-3">
+      <!--<div class="row ">-->
+        <!--<div class="col-lg-12 " [routerLink]="['/users']" >-->
+          <!--<img class="pull-lg-right" style="margin-right: -5px; margin-top: 5px; " src="assets/icon_Close_type2.jpg">-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="row" style="">
+        <div class="col-lg-5" style="font-size: 14px">Все категории</div>
+        <div class="col-lg-2" (click)="addCategories()"><img class="myClass1" src="assets/icon_Add.jpg">
+
+          <!--<button>+</button>-->
+        </div>
+      </div>
+
+      <div class="table-bordered col-lg-12" style="border-color: #569E95">
+
+        <div class="row " *ngFor="let category of categories; let i=index">
+          <!--<div class="col-lg-4">{{i+1}}</div>-->
+          <div class="col-lg-4"><img (click)="addCategoryToList(i)" style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+          <div class="col-lg-6">{{category.shortName}}</div>
+          <div class="col-lg-1" >
+            <img (click)="deleteCategories(category.id, i)" class="myClass1" style="width: 30px" src="../../assets/icon_Close.jpg">
+          </div>
+        </div>
+      </div>
+
+      <div class="row" >
+        <div class="col-lg-5" style="margin-top: 15px">
+          <button [disabled]="name.invalid ||
+          phone.invalid ||
+          parentname.invalid ||
+          secondname.invalid ||
+          username.invalid"  style="border-color: #569E95; background-color: #569E95; font-family: 'Bauhaus 93'" class="btn "  (click)="submit()">Сохранить</button>
+        </div>
+
+        <div class="col-lg-7 " style="margin-top: 15px">
+          <button style="border-color: #569E95;
+          background-color: #569E95;
+          font-family: 'Bauhaus 93'" class="btn "  (click)="close()">Сохранить и закрыть</button>
+        </div>
+      </div>
+
+
+    </div>
+
+</div>
+

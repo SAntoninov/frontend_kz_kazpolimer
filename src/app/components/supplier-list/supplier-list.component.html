@@ -1,0 +1,121 @@
+<style>
+  .r {
+    margin-left: 115px;
+  }
+</style>
+<style>
+  .tab {
+    border: 1px solid #D4E3DF
+  }
+  table {
+    width: 96%;
+    border-collapse: collapse;
+  }
+  tr {
+    /*padding: 3px; !*поля вокруг содержимого таблицы*!*/
+    border: 1px solid black;
+    text-align: left;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    /*line-height: 120%;*/
+
+    /* or 19px */
+    /*display: flex;*/
+    /*align-items: center;*/
+  }
+  th,td {
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .hh {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 120%;
+
+    /* or 19px */
+    display: flex;
+    align-items: center;
+
+    /* kaz dark */
+    /*background: #585144;*/
+  }
+
+  .pd{
+    padding-top: 25px;
+  }
+
+  .pdt{
+    /*align-content: center;*/
+    margin-top: 10px;
+  }
+
+  .pdb{
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="r container-fluid " >
+  <div class="row" style="padding-right: 50px">
+    <div class="col-lg-2 pd pdb">Весь список</div>
+    <div class="col-lg-2 pd db ">
+      <input style="height:25px; width: 150px" type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Поиск">
+    </div>
+    <div class="col-lg-2 pd pdb">Фильтр</div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2"></div>
+    <div style="padding-top: 10px;" class="form-group col-lg-2">
+      <button style="margin-top: 10px; border-color: #569E95; background-color: #569E95; color: white; font-family: 'Bauhaus 93'" class="btn "  (click)="cl()">Добавить поставщика</button>
+    </div>
+    <!--<div style=" margin-bottom: 10px; margin-top: 25px; text-align: center;" class="col-lg-2 btn-outline-success pdt " (click)="cl()">Добавить поставщика</div>-->
+  </div>
+
+  <div class="row" >
+    <div style="text-align: left;" class="col-md-2 pdb pdt">
+      <h4>{{name}}</h4>
+    </div>
+    <div style="text-align: right; padding-right: 80px" class="col-md-10 pdt">[Отображение меток для фильтрации]</div>
+  </div>
+
+
+  <table class="table table-bordered table-hover" >
+    <thead class="thead-dark ">
+    <tr style="background-color: #D4E3DF">
+      <!--<th scope="col">#</th>-->
+      <th scope="col">Название</th>
+      <th scope="col">Контакты</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Регион</th>
+      <th scope="col">Последняя информация</th>
+      <th scope="col">Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let supplier of pageClient.content" [routerLink]="['/suppliers', supplier.id]">
+      <td>{{ supplier.name }}</td>
+      <td>{{ supplier.email }}</td>
+      <td>{{ supplier.phone }}</td>
+      <td>{{ supplier.region }}</td>
+      <td>{{ supplier.lastinfo }}</td>
+      <td>{{ supplier.date.split('T')[0]}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="...">
+    <ul style="margin-left: 480px; margin-top:-10px;" class="pagination1"  *ngIf="pageClient?.content" >
+      <li *ngFor="let page of ' '.repeat(pageClient.totalPages).split(''), let i = index " (click)="onSelect(i)" [class.active]="i === selectedPage" class="page-item1">
+        <a class="page-link1" >{{i}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+

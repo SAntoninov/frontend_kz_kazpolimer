@@ -1,0 +1,26 @@
+<style>
+  .r {
+    margin-left: 205px;
+  }
+</style>
+
+<div class="uploadfilecontainer">
+
+  <div style=" padding-top: 13%">
+    <div style="text-align: center">
+      <img src="/assets/156829754190830621.png" style="width: 250px; ">
+    </div>
+    <div style="text-align: center; margin-top: 15px; ">
+      <input type="text" name="username" [(ngModel)]="model.username" placeholder="Введите имя" style="width: 250px; ">
+    </div>
+    <div style="text-align: center; margin-top: 15px">
+      <input type="password" name="password" [(ngModel)]="model.password" placeholder="Введите пароль" style="width: 250px">
+    </div>
+    <div style="text-align: center; margin-top: 15px">
+      <button  (click)="checkLogin()" class="btn-success btn" style="width: 250px; background: #569E95; border-color: #569E95">
+        Войти
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,137 @@
+<div class="top r row right">
+
+  <div class="row" style="padding: 0px; padding-left: 5px">
+    <div class="col-lg-3">
+      <div class="btn row" [routerLink]="['/products']">
+        <div class="col-lg-1"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+        <div class="test1"><span style="vertical-align: middle; display: inline-block">Назад к списку товаров</span></div>
+      </div>
+    </div>
+    <div class="col-lg-7"></div>
+    <div class="col-lg-2" [routerLink]="['/products']"><img style="margin-left: 135px; margin-top: 5px" src="assets/icon_Close_type2.jpg"></div>
+  </div>
+
+
+
+  <div class="col-lg-7">
+    <div class="row">
+      <div class="col-lg-7" style="font-weight: bold">{{test.fullname}}</div>
+      <div class="col-lg-2" (click)="edit()"><img class="myClass1" style="margin-left: 25px" src="assets/Group.jpg"></div>
+    </div>
+    <div class="table-bordered" style="border-color: #569E95">
+
+      <div class="row">
+        <div class="col-lg-5 test">Сокращение</div>
+        <div class="col-lg-5 test" style="text-align: left;">{{test.name}}</div>
+        <div class="col-lg-2 test" ><img class="myClass1" style="margin-left: 25px" src="assets/Vector.jpg"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 test">Производитель</div>
+        <div class="col-lg-5 test" style="text-align: left;">{{test.manufacturer}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 test">Категория товара</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.category}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 test">Область применения</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.applicationarea}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 test">Характерные свойства</div>
+        <div class="col-lg-7 test" style="text-align: left;">{{test.characteristicproperties}}</div>
+      </div>
+
+
+    </div>
+
+    <div style="margin-top: 20px">
+      <label>Физико-химический свойства</label>
+      <table class="table table-bordered table-hover" >
+        <thead class="thead-dark ">
+        <tr style="background-color: #D4E3DF">
+          <th scope="col">Наименование</th>
+          <th scope="col">Номера по документу</th>
+          <th scope="col">Фактическое значение</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let product of test.physicalProperties" >
+          <td>
+            {{ product.name }}
+            <div *ngFor="let item of product.props">
+              {{item.name}}
+            </div>
+          </td>
+          <td>
+            <span>&#8203;</span>
+            <div *ngFor="let item of product.props">
+              {{item.valuedoc}}
+            </div>
+          </td>
+          <td>
+            <span>&#8203;</span>
+            <div *ngFor="let item of product.props">
+              {{item.valuefact}}
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="col-lg-5">
+    <div class="form-group">
+      <div class="row">
+          <div id="left" class="col-lg-1 pull-lg-left"><img  style=" margin-top: 5px" src="assets/Vector (1).jpg"></div>
+          <div id="right" class="col-lg-1 pull-lg-right" ><img  style=" margin-top: 5px" src="assets/Vector (2).jpg"></div>
+      </div>
+        <img style="height: 280px; width: 552px" [src]="imageToShow"
+             alt="Place image title"
+             *ngIf="!isImageLoading; else noImageFound">
+        <ng-template #noImageFound>
+          <div class="table-bordered" style=" border-color: #569E95; height: 350px; width: 665px">
+            Загрузка
+          </div>
+        </ng-template>
+    </div>
+
+    <div style="margin-top: 20px">
+      <label>Файлы</label>
+      <div class="table-bordered" style="border-color: #569E95; height: 150px; margin-right: 0px">
+        <slideshow #slideshow [imageUrls]="photoUrls" [height]="'20vh'" [minHeight]="'20vh'" [autoPlay]="true" [showArrows]="true">
+          тест
+        </slideshow>
+      </div>
+
+      <input type="file" (change)="fileChangeEvent($event)" />
+
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="4 / 4"
+        [resizeToWidth]="128"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+
+      <img [src]="croppedImage" />
+    </div>
+
+    <div style="padding-top: 10px;" class="form-group">
+      <!--<button style="border-color: #569E95; background-color: white; font-family: 'Bauhaus 93'" class="btn "  (click)="submit(test)">Закрыть</button>-->
+    </div>
+  </div>
+
+</div>
+
+

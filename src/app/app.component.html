@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  img.myClass1{
+    /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+    opacity: 0.6;
+    transition: 200ms ease-in;
+    vertical-align: top;
+  }
+
+  img.myClass1:hover {
+    opacity: 1;
+  }
+
+</style>
+
+<app-header *ngIf="loggedIn"></app-header>
+<!--lзаходим на localhost:4200/ если loggedIn то на reroute на администрирование иначе на login-->
+<div class="sidenav" *ngIf="loggedIn">
+  <a href="#about" routerLink="/tasks" style="padding-bottom: 0px"> <img class="myClass1" src="assets/Tasks.png" width="80" height="75"  ></a>
+  <a href="#about" routerLink="/suppliers" style="padding-top: 0px"> <img class="myClass1" src="assets/Suppliers.png" width="80" height="75"  ></a>
+  <a href="#services" routerLink="/products" style="padding-top: 0px"> <img class="myClass1" src="assets/Products.png" width="80" height="80"  ></a>
+  <!--<a href="#services" routerLink="/tasks" > <img class="myClass1" src="assets/Products.png" width="80" height="75"  ></a>-->
+  <a href="#clients" routerLink="/customers" style="padding-top: 0px; padding-left: 17px"> <img class="myClass1" src="assets/Customers.png" width="80" height="75"  ></a>
+  <!--<a href="#clients"> <img src="assets/Analitic.png" width="80" height="75"  class="btn"></a>-->
+  <a href="#clients" routerLink="/tasks" style="padding-left: 17px"> <img class="myClass1" src="assets/Archive.png" width="80" height="75" ></a>
+  <a href="#clients" routerLink="/tasks" style="padding-left: 17px"> <img class="myClass1" src="assets/Literature.png" width="80" height="75" ></a>
+  <!--<a href="#contact" routerLink="/suppliers" class="btn"> Поставщики</a>-->
+  <!--<a style="padding-left: 2px" href="#contact" routerLink="/users" class="btn "> <img src="assets/Administrate.png" width="80" height="75" ></a>-->
+  <a href="#contact" routerLink="/users" style="padding-left: 16px"> <img class="myClass1" src="assets/Administrate.png" width="80" height="75" ></a>
+  <!--<a href="#contact" routerLink="/testList" class="btn btn-info">Тест</a>-->
+</div>
+
+<router-outlet ></router-outlet>
+
+
